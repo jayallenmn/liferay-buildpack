@@ -32,6 +32,8 @@ module JavaBuildpack
                 download(@version, @uri) { |file| expand file }
                 
                 configure_mysql_service
+
+                deploy_portlet_wars
             end
             
             # (see JavaBuildpack::Component::BaseComponent#release)
@@ -60,12 +62,21 @@ module JavaBuildpack
                     shell "tar xzf #{file.path} -C #{@droplet.sandbox} 2>&1"
                 end
             end
-            
+
+
+            def deploy_portlet_wars
+                destination = "#{@droplet.sandbox}/deploy/"
+                with_timing "Packaging #{@application.root} to #{destination} " do
+                   FileUtils.mkdir_p "#{@droplet.sandbox}/deploy"
+                   shell "cp #{@application.root}/*.war #{destination} "
+                end
+            end            
+
             # In this method we check if the application is bound to a service. If that is the case then we create the portal-ext.properties
             # and store it in Liferay Portal classes directory.
             def configure_mysql_service
                 
-                @logger       = JavaBuildpack::Logging::LoggerFactory.instance.get_logger TomcatInstance
+                @logger       = JavaBuildpack::Logging::LoggerFactory.instance.get_logger LiferayPortal
                 service       = @application.services.find_service FILTER
                 
                 @logger.info{ "--->Application seems to be bound to a lf-mysqldb service" }
