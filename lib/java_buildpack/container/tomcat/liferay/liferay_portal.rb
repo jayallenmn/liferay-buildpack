@@ -30,6 +30,8 @@ module JavaBuildpack
         return unless supports?
 
         download(@version, @uri) { |file| expand file }
+
+        configure_mysql_service
       end
 
       # (see JavaBuildpack::Component::BaseComponent#release)
