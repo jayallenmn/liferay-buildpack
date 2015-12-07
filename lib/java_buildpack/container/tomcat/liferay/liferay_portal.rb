@@ -31,7 +31,7 @@ module JavaBuildpack
                 
                 download(@version, @uri) { |file| expand file }
                 
-                configure_mysql_service
+                #configure_mysql_service
 
                 deploy_portlet_wars
             end
