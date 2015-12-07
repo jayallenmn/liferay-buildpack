@@ -29,12 +29,10 @@ module JavaBuildpack
       def compile
         return unless supports?
 
-        print "About to process i#{@version} and {@uri} for liferay dependencies"
-
         download(@version, @uri) { |file| expand file }
         
         FileUtils.mkdir_p "#{@droplet.sandbox}/lib/ext"
-        FileUtils.mv "#{@droplet.sandbox}/tmp/lib-ext/*.jar", "#{@droplet.sandbox}/lib/ext"
+        FileUtils.mv Dir.glob("#{@droplet.sandbox}/tmp/lib-ext/*.jar"), "#{@droplet.sandbox}/lib/ext"
 
       end
 
@@ -56,9 +54,9 @@ module JavaBuildpack
       end
 
       def expand(file)
-        with_timing "Expanding #{@component_name} to #{@droplet.sandbox}/tmp" do
-          FileUtils.mkdir_p "#{@droplet.sandbox}/tmp"
-          shell "tar xzf #{file.path} -C #{@droplet.sandbox}/tmp --strip 1 2>&1"
+        with_timing "Expanding #{@component_name} to #{@droplet.root}/tmp" do
+          FileUtils.mkdir_p "#{@droplet.root}/tmp"
+          shell "tar xzf #{file.path} -C #{@droplet.root}/tmp --strip 1 2>&1"
         end
       end
 
