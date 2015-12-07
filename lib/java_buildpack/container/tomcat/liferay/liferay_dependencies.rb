@@ -50,7 +50,7 @@ module JavaBuildpack
       private
 
       def tar_name
-        "liferay-portal-tomcat-6.2-ce-ga5-dependencies.tar.gz”
+        "liferay-portal-tomcat-6.2-ce-ga5-dependencies.tar.gz"
       end
 
     end
