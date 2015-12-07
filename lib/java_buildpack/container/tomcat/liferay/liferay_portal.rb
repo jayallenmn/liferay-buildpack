@@ -53,7 +53,7 @@ module JavaBuildpack
         with_timing "Expanding #{@component_name} to #{@droplet.sandbox}" do
           FileUtils.mkdir_p "#{@droplet.sandbox}"
           shell "tar xzf #{file.path} -C #{@droplet.sandbox} 2>&1"
-          shell "tar xvf #{@droplet.sandbox}/liferay-portal-6.2-ce-ga5.war -C #{@droplet.sandbox}/webapps/ROOT 2>&1"
+          shell "unzip -qq #{@droplet.sandbox}/liferay-portal-6.2-ce-ga5.war -d #{@droplet.sandbox}/webapps/ROOT 2>&1"
         end
       end
 
