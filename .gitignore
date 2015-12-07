@@ -4,3 +4,4 @@
 build/
 coverage
 doc
+.DS_Store
