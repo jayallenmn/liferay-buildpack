@@ -33,7 +33,7 @@ Free Disk Space (Before)
 $(df -h)
 "
 
-pkill -9 -f .*-XX:OnOutOfMemoryError=.*killjava.*
+# pkill -9 -f .*-XX:OnOutOfMemoryError=.*killjava.*
 
 echo "
 Process Status (After)
