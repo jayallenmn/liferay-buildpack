@@ -29,10 +29,9 @@ module JavaBuildpack
       def compile
         return unless supports?
 
-        destination = "#{@droplet.sandbox}/tmp/"
+        print "About to process i#{@version} and {@uri} for liferay dependencies"
 
-	FileUtils.mkdir_p destination
-        download_tar(tar_name, tomcat_lib, destination)
+        download(@version, @uri) { |file| expand file }
         
         FileUtils.mkdir_p "#{@droplet.sandbox}/lib/ext"
         FileUtils.mv "#{@droplet.sandbox}/tmp/lib-ext/*.jar", "#{@droplet.sandbox}/lib/ext"
@@ -54,6 +53,13 @@ module JavaBuildpack
 
       def tar_name
         "liferay-portal-tomcat-6.2-ce-ga5-dependencies.tar.gz"
+      end
+
+      def expand(file)
+        with_timing "Expanding #{@component_name} to #{@droplet.sandbox}/tmp" do
+          FileUtils.mkdir_p "#{@droplet.sandbox}/tmp"
+          shell "tar xzf #{file.path} -C #{@droplet.sandbox}/tmp --strip 1 2>&1"
+        end
       end
 
     end
