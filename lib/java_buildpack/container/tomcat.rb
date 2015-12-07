@@ -59,7 +59,7 @@ module JavaBuildpack
           TomcatRedisStore.new(sub_configuration_context(context, 'redis_store')),
           TomcatGemfireStore.new(sub_configuration_context(context, 'gemfire_store')),
           TomcatInsightSupport.new(context),
-          LiferayDependencies.new(sub_configuration_context(context, 'liferay_dependencies'))
+          LiferayDependencies.new(sub_configuration_context(context, 'liferay_dependencies')),
           LiferayPortal.new(sub_configuration_context(context, 'liferay_portal'))
         ]
       end
