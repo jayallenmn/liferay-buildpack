@@ -22,7 +22,7 @@ liferay_dependencies:
   version: 6.2.5
   repository_root: ! 'https://liferay-bundle.mybluemix.net/liferay-dependencies'
 tomcat:
-  version: 8.0.1
+  version: 7.0.62
   repository_root: ! '{default.repository.root}/tomcat'
   context_path:
 lifecycle_support:
