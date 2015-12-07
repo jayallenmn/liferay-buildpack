@@ -32,7 +32,7 @@ module JavaBuildpack
 	FileUtils.mkdir_p destination
         download_tar(tar_name, tomcat_lib, destination)
 
-        FileUtils.mv("#{@droplet.sandbox}/tmp/lib-ext“, "#{@droplet.sandbox}/lib/ext”)
+        FileUtils.mv("#{@droplet.sandbox}/tmp/lib-ext/*.jar“, "#{@droplet.sandbox}/lib/ext”)
 
       end
 
