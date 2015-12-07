@@ -90,12 +90,14 @@
     <Connector port="8009" protocol="AJP/1.3" redirectPort="8443" URIEncoding="UTF-8" />
 
     <Engine name="Catalina" defaultHost="localhost">
-      <Host name="localhost"  appBase="webapps"
-            unpackWARs="true" autoDeploy="true">
-        <Valve className="com.gopivotal.cloudfoundry.tomcat.logging.access.CloudFoundryAccessLoggingValve"
+            <Valve className="org.apache.catalina.valves.RemoteIpValve" protocolHeader="x-forwarded-proto"/>
+            <Valve className="com.gopivotal.cloudfoundry.tomcat.logging.access.CloudFoundryAccessLoggingValve"
                    pattern='[ACCESS] %{org.apache.catalina.AccessLog.RemoteAddr}r %l %t %D %F %B %S vcap_request_id:%{X-Vcap-Request-Id}i'
-                   enabled="${access.logging.enabled}”/>
-      </Host>
+                   enabled="${access.logging.enabled}"/>
+
+            <Host name='localhost' appBase="webapps" unpackWARs="true" autoDeploy="true">
+                <Listener className="com.gopivotal.cloudfoundry.tomcat.lifecycle.ApplicationStartupFailureDetectingLifecycleListener"/>
+            </Host>
     </Engine>
   </Service>
 </Server>
