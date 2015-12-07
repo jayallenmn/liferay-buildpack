@@ -34,6 +34,8 @@ module JavaBuildpack
         FileUtils.mkdir_p "#{@droplet.sandbox}/lib/ext"
         FileUtils.mv Dir.glob("#{@droplet.sandbox}/tmp/lib-ext/*.jar"), "#{@droplet.sandbox}/lib/ext"
 
+        FileUtils.mkdir_p "#{@droplet.sandbox}/liferay/com/liferay/portal/deploy/dependencies"
+        FileUtils.mv Dir.glob("#{@droplet.sandbox}/tmp/tmp-deploy/*.jar"), "#{@droplet.sandbox}/liferay/com/liferay/portal/deploy/dependencies"        
       end
 
       # (see JavaBuildpack::Component::BaseComponent#release)
@@ -56,7 +58,7 @@ module JavaBuildpack
       def expand(file)
         with_timing "Expanding #{@component_name} to #{@droplet.root}/tmp" do
           FileUtils.mkdir_p "#{@droplet.root}/tmp"
-          shell "tar xzf #{file.path} -C #{@droplet.root}/tmp --strip 1 2>&1"
+          shell "tar xzf #{file.path} -C #{@droplet.root}/tmp 2>&1"
         end
       end
 
