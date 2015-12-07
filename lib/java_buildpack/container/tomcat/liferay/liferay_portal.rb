@@ -174,11 +174,7 @@ module JavaBuildpack
                       end
                   end # end with_timing
               end
-        end
-
-
-
-    end
-
+          end
+      end
   end
 end
