@@ -17,7 +17,7 @@
 
 # Kill script for use as the parameter of OpenJDK's -XX:OnOutOfMemoryError
 
-set -e
+#set -e
 
 echo "
 Process Status (Before)
