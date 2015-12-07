@@ -24,6 +24,7 @@ require 'java_buildpack/container/tomcat/tomcat_access_logging_support'
 require 'java_buildpack/container/tomcat/tomcat_redis_store'
 require 'java_buildpack/container/tomcat/tomcat_gemfire_store'
 require 'java_buildpack/container/tomcat/liferay/liferay_dependencies'
+require 'java_buildpack/container/tomcat/liferay/liferay_portal'
 require 'java_buildpack/util/java_main_utils'
 
 module JavaBuildpack
@@ -59,6 +60,7 @@ module JavaBuildpack
           TomcatGemfireStore.new(sub_configuration_context(context, 'gemfire_store')),
           TomcatInsightSupport.new(context),
           LiferayDependencies.new(sub_configuration_context(context, 'liferay_dependencies'))
+          LiferayPortal.new(sub_configuration_context(context, 'liferay_portal'))
         ]
       end
 
