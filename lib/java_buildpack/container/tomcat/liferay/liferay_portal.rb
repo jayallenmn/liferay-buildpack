@@ -30,6 +30,10 @@ module JavaBuildpack
         return unless supports?
 
         download(@version, @uri) { |file| expand file }
+
+	print "Env variable: #{@droplet.environment_variables.as_env_vars}\n"
+        print "Java home: #{@droplet.java_home.as_env_var}\n"
+        print "Java Opts: #{@droplet.java_opts.as_env_var}\n"
       end
 
       # (see JavaBuildpack::Component::BaseComponent#release)
