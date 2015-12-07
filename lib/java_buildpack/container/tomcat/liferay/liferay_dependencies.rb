@@ -32,10 +32,10 @@ module JavaBuildpack
         download(@version, @uri) { |file| expand file }
         
         FileUtils.mkdir_p "#{@droplet.sandbox}/lib/ext"
-        FileUtils.mv Dir.glob("#{@droplet.sandbox}/tmp/lib-ext/*.jar"), "#{@droplet.sandbox}/lib/ext"
+        FileUtils.mv Dir.glob("#{@droplet.root}/tmp/lib-ext/*.jar"), "#{@droplet.sandbox}/lib/ext"
 
-        FileUtils.mkdir_p "#{@droplet.sandbox}/liferay/com/liferay/portal/deploy/dependencies"
-        FileUtils.mv Dir.glob("#{@droplet.sandbox}/tmp/tmp-deploy/*.jar"), "#{@droplet.sandbox}/liferay/com/liferay/portal/deploy/dependencies"        
+        FileUtils.mkdir_p "#{@droplet.sandbox}/temp/liferay/com/liferay/portal/deploy/dependencies"
+        FileUtils.mv Dir.glob("#{@droplet.root}/tmp/tmp-deploy/*.jar"), "#{@droplet.sandbox}/temp/liferay/com/liferay/portal/deploy/dependencies"        
       end
 
       # (see JavaBuildpack::Component::BaseComponent#release)
