@@ -96,7 +96,6 @@
                    enabled="${access.logging.enabled}"/>
 
             <Host name='localhost' appBase="webapps" unpackWARs="true" autoDeploy="true">
-                <Listener className="com.gopivotal.cloudfoundry.tomcat.lifecycle.ApplicationStartupFailureDetectingLifecycleListener"/>
             </Host>
     </Engine>
   </Service>
