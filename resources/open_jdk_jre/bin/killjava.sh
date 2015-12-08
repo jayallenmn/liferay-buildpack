@@ -17,7 +17,7 @@
 
 # Kill script for use as the parameter of OpenJDK's -XX:OnOutOfMemoryError
 
-#set -e
+set -e
 
 echo "
 Process Status (Before)
@@ -33,7 +33,7 @@ Free Disk Space (Before)
 $(df -h)
 "
 
-# pkill -9 -f .*-XX:OnOutOfMemoryError=.*killjava.*
+pkill -9 -f .*-XX:OnOutOfMemoryError=.*killjava.*
 
 echo "
 Process Status (After)
