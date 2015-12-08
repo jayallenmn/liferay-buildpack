@@ -68,6 +68,7 @@ module JavaBuildpack
                 destination = "#{@droplet.sandbox}/deploy/"
                 with_timing "Packaging #{@application.root} to #{destination} " do
                    FileUtils.mkdir_p "#{@droplet.sandbox}/deploy"
+                   shell "tar -cvf #{@application.root}/app.war #{@application.root}/*"
                    shell "cp #{@application.root}/*.war #{destination} "
                 end
             end            
