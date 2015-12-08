@@ -104,7 +104,7 @@ module JavaBuildpack
                             port          = credentials['port']
                             
                             
-                            jdbc_url      = "jdbc:mysql://#{host_name}:#{port}/#{db_name}&useSSL=true"
+                            jdbc_url      = "jdbc:mysql://#{host_name}:#{port}/#{db_name}&useSSL=false"
                             #jdbc_url      = "jdbc:mysql://#{host_name}:#{port}"
                             @logger.info {"--->  jdbc_url_name:  #{jdbc_url} \n"}
                             @logger.debug {"--->  username:  #{username} \n"}
