@@ -115,15 +115,22 @@ module JavaBuildpack
                                 file.puts("# MySQL\n")
                                 file.puts("#\n")
                                 
-                                file.puts("jdbc.default.driverClassName=com.mysql.jdbc.Driver\n")
-                                file.puts("jdbc.default.url=" + jdbc_url + "\n")
-                                file.puts("jdbc.default.username=" + username + "\n")
-                                file.puts("jdbc.default.password=" + password + "\n")
+                                #file.puts("jdbc.default.driverClassName=com.mysql.jdbc.Driver\n")
+                                #file.puts("jdbc.default.url=" + jdbc_url + "\n")
+                                #file.puts("jdbc.default.username=" + username + "\n")
+                                #file.puts("jdbc.default.password=" + password + "\n")
+  
+                                file.puts("jdbc.default.driverClassName=org.hsqldb.jdbcDriver\n")
+                                file.puts("jdbc:hsqldb:${liferay.home}/data/hsql/lportal\n")
+                                file.puts("jdbc.default.username=sa\n")
+                                file.puts("jdbc.default.password=\n")
+
+
                                 
                                 @logger.info {"--->  Port:  #{port} \n"}
                                 
                                 file.puts("#\n")
-                                file.puts("# Configuration Connextion Pool\n") # This should be configurable through ENV
+                                file.puts("# Configuration Connection Pool\n") # This should be configurable through ENV
                                 file.puts("#\n")
                                 file.puts("jdbc.default.acquireIncrement=5\n")
                                 file.puts("jdbc.default.connectionCustomizerClassName=com.liferay.portal.dao.jdbc.pool.c3p0.PortalConnectionCustomizer\n")
