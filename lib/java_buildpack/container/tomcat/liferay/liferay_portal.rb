@@ -162,30 +162,30 @@ module JavaBuildpack
                                 
                                 file.puts("# Configuration of Quartz\n")
                                 file.puts("#\n")
-                                file.puts("org.quartz.jobStore.isClustered=true\n")
+                                file.puts("org.quartz.jobStore.isClustered=false\n")
                                 
-                                @logger.info {"--->  configuring Cluster \n"}
+                                #@logger.info {"--->  configuring Cluster \n"}
                                 
-                                file.puts("# Configuration of Cluster Link\n")
-                                file.puts("#\n")
-                                file.puts("cluster.link.enabled=true\n")
-                                host_port = "#{host_name}:#{port}"
-                                file.puts("cluster.link.autodetect.address=" + host_port +"\n")
+                                #file.puts("# Configuration of Cluster Link\n")
+                                #file.puts("#\n")
+                                #file.puts("cluster.link.enabled=true\n")
+                                #host_port = "#{host_name}:#{port}"
+                                #file.puts("cluster.link.autodetect.address=" + host_port +"\n")
                                 
                                 #@logger.info {"--->  Disabling Caching \n"}
                                 #file.puts("browser.cache.disabled=true\n")
                                 
                                 
-                                @logger.info {"--->  Configuring unicast \n"}
-                                file.puts("# Configuration of Unicast\n")
-                                file.puts("#\n")
-                                file.puts("cluster.link.enabled=cluster.link.channel.properties.control=unicast.xml\n")
-                                file.puts("cluster.link.channel.properties.transport.0=unicast.xml\n")
-                                file.puts("ehcache.bootstrap.cache.loader.factory=com.liferay.portal.cache.ehcache.JGroupsBootstrapCacheLoaderFactory\n")
-                                file.puts("ehcache.cache.event.listener.factory=net.sf.ehcache.distribution.jgroups.JGroupsCacheReplicatorFactory\n")
-                                file.puts("ehcache.cache.manager.peer.provider.factory=net.sf.ehcache.distribution.jgroups.JGroupsCacheManagerPeerProviderFactory\n")
-                                file.puts("net.sf.ehcache.configurationResourceName.peerProviderProperties=file=/unicast.xml\n")
-                                file.puts("ehcache.multi.vm.config.location.peerProviderProperties=file=/unicast.xml\n")
+                                #@logger.info {"--->  Configuring unicast \n"}
+                                #file.puts("# Configuration of Unicast\n")
+                                #file.puts("#\n")
+                                #file.puts("cluster.link.enabled=cluster.link.channel.properties.control=unicast.xml\n")
+                                #file.puts("cluster.link.channel.properties.transport.0=unicast.xml\n")
+                                #file.puts("ehcache.bootstrap.cache.loader.factory=com.liferay.portal.cache.ehcache.JGroupsBootstrapCacheLoaderFactory\n")
+                                #file.puts("ehcache.cache.event.listener.factory=net.sf.ehcache.distribution.jgroups.JGroupsCacheReplicatorFactory\n")
+                                #file.puts("ehcache.cache.manager.peer.provider.factory=net.sf.ehcache.distribution.jgroups.JGroupsCacheManagerPeerProviderFactory\n")
+                                #file.puts("net.sf.ehcache.configurationResourceName.peerProviderProperties=file=/unicast.xml\n")
+                                #file.puts("ehcache.multi.vm.config.location.peerProviderProperties=file=/unicast.xml\n")
                                 
                             end #end File.open
                         end # end with_timing
