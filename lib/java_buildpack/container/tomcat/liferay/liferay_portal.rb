@@ -115,15 +115,15 @@ module JavaBuildpack
                                 file.puts("# MySQL\n")
                                 file.puts("#\n")
                                 
-                                #file.puts("jdbc.default.driverClassName=com.mysql.jdbc.Driver\n")
-                                #file.puts("jdbc.default.url=" + jdbc_url + "\n")
-                                #file.puts("jdbc.default.username=" + username + "\n")
-                                #file.puts("jdbc.default.password=" + password + "\n")
+                                file.puts("jdbc.default.driverClassName=com.mysql.jdbc.Driver\n")
+                                file.puts("jdbc.default.url=" + jdbc_url + "\n")
+                                file.puts("jdbc.default.username=" + username + "\n")
+                                file.puts("jdbc.default.password=" + password + "\n")
   
-                                file.puts("jdbc.default.driverClassName=org.hsqldb.jdbcDriver\n")
-                                file.puts("jdbc:hsqldb:${liferay.home}/data/hsql/lportal\n")
-                                file.puts("jdbc.default.username=sa\n")
-                                file.puts("jdbc.default.password=\n")
+                                #file.puts("jdbc.default.driverClassName=org.hsqldb.jdbcDriver\n")
+                                #file.puts("jdbc:hsqldb:${liferay.home}/data/hsql/lportal\n")
+                                #file.puts("jdbc.default.username=sa\n")
+                                #file.puts("jdbc.default.password=\n")
 
 
                                 
