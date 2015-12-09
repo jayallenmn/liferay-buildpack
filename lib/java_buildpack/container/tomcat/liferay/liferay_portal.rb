@@ -154,6 +154,7 @@ module JavaBuildpack
                                 file.puts("#\n")
                                 file.puts("# Configuration of the auto deploy folder\n")
                                 file.puts("#\n")
+                                file.puts("auto.deploy.enabled=true\n")
                                 file.puts("auto.deploy.dest.dir=${catalina.home}/webapps\n")
                                 file.puts("auto.deploy.deploy.dir=${catalina.home}/deploy\n")
                                 file.puts("#\n")
