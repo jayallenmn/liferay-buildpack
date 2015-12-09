@@ -157,6 +157,7 @@ module JavaBuildpack
                                 file.puts("auto.deploy.enabled=true\n")
                                 file.puts("auto.deploy.dest.dir=${catalina.home}/webapps\n")
                                 file.puts("auto.deploy.deploy.dir=${catalina.home}/deploy\n")
+                                file.puts("auto.deploy.listeners=com.liferay.portal.deploy.auto.ExtAutoDeployListener,com.liferay.portal.deploy.auto.HookAutoDeployListener,com.liferay.portal.deploy.auto.LayoutTemplateAutoDeployListener,com.liferay.portal.deploy.auto.PortletAutoDeployListener,     com.liferay.portal.deploy.auto.ThemeAutoDeployListener,com.liferay.portal.deploy.auto.WebAutoDeployListener,com.liferay.portal.deploy.auto.exploded.tomcat.HookExplodedTomcatListener,com.liferay.portal.deploy.auto.exploded.tomcat.LayoutTemplateExplodedTomcatListener,com.liferay.portal.deploy.auto.exploded.tomcat.PortletExplodedTomcatListener,com.liferay.portal.deploy.auto.exploded.tomcat.ThemeExplodedTomcatListener\n") 
                                 file.puts("#\n")
                                 
                                 file.puts("setup.wizard.enabled=false\n")
