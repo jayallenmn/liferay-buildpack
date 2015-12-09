@@ -129,6 +129,7 @@ module JavaBuildpack
                                 file.puts("jdbc.default.connectionCustomizerClassName=com.liferay.portal.dao.jdbc.pool.c3p0.PortalConnectionCustomizer\n")
                                 file.puts("jdbc.default.idleConnectionTestPeriod=60\n")
                                 file.puts("jdbc.default.maxIdleTime=3600\n")
+                                file.puts("hibernate.show.sql=true\n")
                                 
                                 #Check if the user specify a maximum pool size
                                 user_max_pool = ENV["LIFERAY_MAX_POOL_SIZE"]
