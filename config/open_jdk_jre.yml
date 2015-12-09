@@ -16,23 +16,14 @@
 # Configuration for JRE repositories keyed by vendor
 # If Java 7 is required, permgen will be used instead of metaspace. Please see the documentation for more detail.
 ---
-jre:
-  version: 1.8.0_+
-  repository_root: ! '{default.repository.root}/openjdk/{platform}/{architecture}'
-memory_calculator:
-  version: 2.+
-  repository_root: ! '{default.repository.root}/memory-calculator/{platform}/{architecture}'
-  stack_threads: 
-  memory_sizes:
-    heap: 128m..256m
-    metaspace: 256m..
-  memory_heuristics:
-    heap: 50
-    metaspace: 10
-    native: 10
-    permgen: 10
-    stack: 5
-  memory_initials:
-    heap: 100%
-    metaspace: 100%
-    permgen: 100%
+repository_root: "{default.repository.root}/openjdk/{platform}/{architecture}"
+version: 1.8.0_+
+memory_sizes:
+  metaspace: 256m..
+  heap: 128m..256m
+memory_heuristics:
+  heap: 50
+  metaspace: 10
+  permgen: 10
+  stack: 5
+  native: 10
